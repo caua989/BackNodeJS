@@ -3,9 +3,9 @@ import database from './config/database.js'
 import router from './router/cliente.js'
 
 const app = express()
-app.use = (express.json())
+app.use(express.json())
 
-app.use("/api/v1/clientes", router)
+app.use("/api/v1/cliente", router)
 
 database.db
     .sync({ force: false })

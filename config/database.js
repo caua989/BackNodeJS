@@ -7,8 +7,8 @@ class database {
 
     init() {
         this.db = new Sequelize({
-            dialect: "Mysql",
-            database: "exemplo",
+            dialect: "mysql",
+            database: "agenda",
             host: "localhost",
             username: "root",
             password: ""

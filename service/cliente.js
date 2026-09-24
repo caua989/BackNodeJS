@@ -12,7 +12,7 @@ class ServiceCliente {
 
         const senhaCripto = await bcrypt.hash(senha, 12)
 
-        const cliente = await RepositoryCliente.Create( email, senhaCripto)
+        const cliente = await RepositoryCliente.Create( nome, email, senhaCripto)
 
         return cliente
     }
@@ -29,7 +29,7 @@ class ServiceCliente {
         const cliente = await RepositoryCliente.findById(id)
 
         if(!cliente) {
-            throw new Error('ID ${id} do cliente não encontrada')
+            throw new Error(`ID ${id} do cliente não encontrada`)
         }
 
         return cliente
@@ -42,9 +42,9 @@ class ServiceCliente {
 
         const senhaCripto = !senha ? undefined: await bcrypt.hash(senha, 12)
 
-        const clienteAlterado = await RepositoryCliente.Update(id, nome, email, senha)
+        const clienteAtualizado = await RepositoryCliente.Update(id, nome, email, senha)
 
-        return clienteAlterado
+        return clienteAtualizado
     }
 
     async Deletar(id){

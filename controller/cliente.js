@@ -1,30 +1,31 @@
-import ServiceClientes from '../service/cliente.js'
+import ServiceCliente from '../service/cliente.js'
 
 class ControllerCliente {
     async Criar(req, res){
         try {
             const { nome, email, senha } = req.body
 
-            await ServiceClientes.Criar(nome, email, senha)
+            await ServiceCliente.Criar(nome, email, senha)
 
-            res.status(201).send({ message: "Cadastrado com sucesso"})
+            res.status(201).send({ mensage: "Cadastrado com sucesso"})
         } catch (error) {
             res.status(500).send({
-                mensagem: error.mensagem
+                mensagem: error.messagem
             })
         }
     }
+
 // letras maiusculas no nome das func
     async Listar(req, res){
         try {
             console.log(req.session)
 
-            const clientes = await ServiceCliente.Buscar()
+            const clientes = await ServiceCliente.Listar()
 
-            res.status(200).send({ message: clientes })
+            res.status(200).send({ mensage: clientes })
         } catch (error) {
             res.status(500).send({
-                mensagem: error.mensagem
+                mensagem: error.messagem
             })
         }
     }
@@ -35,10 +36,10 @@ class ControllerCliente {
 
             const cliente = await ServiceCliente.Buscar(id)
 
-            res.status(200).send({ message: cliente})
+            res.status(200).send({ mensage: cliente})
         } catch (error) {
             res.status(500).send({
-                mensagem: error.mensagem
+                mensagem: error.messagem
             })
         }
     }
@@ -50,10 +51,10 @@ class ControllerCliente {
 
             await ServiceCliente.Atualizar(id, nome, email, senha)
 
-            res.send(201).send({ message: "Cadastrado com sucesso" })
+            res.status(201).send({ mensage: "Cadastrado com sucesso" })
         } catch (error) {
             res.status(500).send({
-                mensagem: error.mensagem
+                mensagem: error.messagem
             })
         }
     }
@@ -64,10 +65,10 @@ class ControllerCliente {
 
             await ServiceCliente.Deletar(identificador)
 
-            res.send(204).send({ message: "Deletado" })
+            res.status(204).send({ mensage: "Deletado" })
         } catch (error) {
             res.status(500).send({
-                mensagem: error.mensagem
+                mensagem: error.messagem
             })
         }
     }
@@ -78,12 +79,12 @@ class ControllerCliente {
 
             const token = await ServiceCliente.Login(nome, email, senha)
 
-            res.send(200).send({
+            res.status(200).send({
                 token
             })
         } catch (error) {
             res.status(500).send({
-                mensagem: error.mensagem
+                mensagem: error.messagem
             })
         }
     }

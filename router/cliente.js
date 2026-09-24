@@ -1,15 +1,15 @@
 import express from 'express'
-import ControllerClientes from '../controller/cliente.js'
+import ControllerCliente from '../controller/cliente.js'
 import authMiddleware from "../middleware/auth.js"
 
 const router = express.Router()
 {
-    router.post("/login", ControllerClientes.Login)
-    router.post("/criar", ControllerClientes.Criar)
-    router.get("/listar", authMiddleware, ControllerClientes.Listar)
-    router.get("/buscar/:id", ControllerClientes.Buscar)
-    router.put("/atualizar/:id", ControllerClientes.Atualizar)
-    router.delete("/deletar/:id", ControllerClientes.Deletar)
+    router.post("/login", ControllerCliente.Login)
+    router.post("/criar", ControllerCliente.Criar)
+    router.get("/listar", authMiddleware, ControllerCliente.Listar)
+    router.get("/buscar/:id", ControllerCliente.Buscar)
+    router.put("/atualizar/:id", ControllerCliente.Atualizar)
+    router.delete("/deletar/:id", ControllerCliente.Deletar)
 }
 
 export default router

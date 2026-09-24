@@ -1,4 +1,4 @@
-import cliente from "../model/cliente"
+import cliente from "../model/cliente.js"
 
 class RepositoryCliente {
 
@@ -21,7 +21,7 @@ class RepositoryCliente {
     }
 
     async Update(id, nome, email, senha) {
-        const clienteAlterar = await usuario.findByPk(id)
+        const clienteAlterar = await cliente.findByPk(id)
         
         if(!clienteAlterar){
             throw new Error("Cliente não encontrado")
