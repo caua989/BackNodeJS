@@ -9,7 +9,7 @@ class RepositoryCliente {
     }
 
     async find() {
-        const clientes = await cliente.findAll()
+        const clientes = await clientes.findAll()
 
         return clientes
     }
@@ -50,7 +50,7 @@ async Delete(id) {
     }
 
     async FindByNome(nome) {
-        return usuario.findOne({ where: { nome } })
+        return cliente.findOne({ where: { nome } })
     }
 }
 

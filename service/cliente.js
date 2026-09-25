@@ -1,4 +1,4 @@
-import RepositoryCliente from '../repository/agenda.js'
+import RepositoryCliente from '../repository/cliente.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
